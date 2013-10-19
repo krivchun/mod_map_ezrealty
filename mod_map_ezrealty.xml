@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension	type="module" version="1.6.0" client="site" method="upgrade">
+	<name>Map Ezrealty</name>
+	<author>Igor Krivchun</author>
+	<creationDate>April 2013</creationDate>
+	<authorEmail>igor@krivchun.ru</authorEmail>
+	<authorUrl>http://ikrivchun.moikrug.ru/</authorUrl>
+	<version>1.0.0</version>
+	<description><![CDATA[
+			<div style="font-weight:normal;">
+			<p><strong>Map Ezrealty</strong> module. Displays Ezralty objects on world map.</p>			
+			<small style="float:right">ver. 1.0</small>
+			</div>
+        ]]>
+	</description>
+	
+	<files>
+		<filename module="mod_map_ezrealty">mod_map_ezrealty.php</filename>
+		<filename>helper.php</filename>
+		<filename>ajax.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+		<filename>mod_map_ezrealty.xml</filename>
+	</files>
+	<config>
+		<fields name="params">			
+                        <fieldset name="general" label="General Settings">
+                                <field name="header_text" 
+					   type="text" 
+					   label="Header"
+					   default="Map Ezrealty" 
+					   description="Header in top of module"></field>
+                                <field name="countries_data" 
+					   type="textarea" 
+					   label="Countries Map Data"
+					   default="" 
+					   description="Centroid and zoom values for Ezrealty countries in format {id1}|{zoom1}|{lat1}|{lon1};{id2}|{zoom2}|{lat2}|{lon2};..."
+                                           rows="10"
+                                           cols="25"
+                                           filter="raw"></field>
+                        </fieldset>
+
+                        <fieldset name="gmap" label="GoogleMaps settings">
+                                <field name="cluster_size" 
+					   type="text" 
+					   label="Cluster Size"
+					   default="30" 
+					   description="GMap cluster grid size"></field>                            
+                        </fieldset>
+
+			<fieldset name="advanced">
+				
+				<field name="include_jquery" 
+					   type="radio"
+					   default="true" 
+					   label="Include jQuery 1.9.1 js" 
+					   description="Add include of jquery js. If you have jquery include in other module, and you don't want to double include, choose 'No'">
+						  <option value="true">Yes</option>
+						  <option value="false">No</option>
+				</field>
+
+				<field name="include_google_maps_api" 
+					   type="radio"
+					   default="true" 
+					   label="Include GoogleMapsApi js" 
+					   description="Add include of google maps api js. If you have google maps api include in other module, and you don't want to double include, choose 'No'">
+						  <option value="true">Yes</option>
+						  <option value="false">No</option>
+				</field>
+
+				<field name="include_google_maps_api_clusterer" 
+					   type="radio"
+					   default="true" 
+					   label="Include GoogleMapsApi js" 
+					   description="Add include of google maps api js. If you have google maps api include in other module, and you don't want to double include, choose 'No'">
+						  <option value="true">Yes</option>
+						  <option value="false">No</option>
+				</field>
+				
+				<field name="js_load_type" 
+					   type="radio"
+					   default="head" 
+					   label="Include all js files in" 
+					   description="The right way is to include the js to the head section, but on some cases when you have double jquery or google maps api loading, you can make it work by changing into body">
+						  <option value="head">Head</option>
+						  <option value="body">Body</option>
+				</field>
+				
+				<field name="no_conflict_mode" 
+					   type="radio"
+					   default="false" 
+					   label="No Conflict Mode" 
+					   description="Run jQuery.noConflict() function. If you have some other js libraries that not working good, you can try this option.">
+						  <option value="true">Yes</option>
+						  <option value="false">No</option>
+				</field>
+					
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+			</fieldset>
+				
+		</fields>
+	</config>	
+</extension>
